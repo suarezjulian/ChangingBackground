@@ -1,14 +1,14 @@
 apply plugin: 'android'
 
 android {
-    compileSdkVersion 19
-    buildToolsVersion "19.0.3"
+    compileSdkVersion rootProject.compileSdkVersion
+    buildToolsVersion rootProject.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion 8
-        targetSdkVersion 19
-        versionCode 1
-        versionName "1.0"
+        versionCode rootProject.versionMajor * 10000 + rootProject.versionMinor * 1000 + rootProject.versionPatch * 100
+        versionName "${rootProject.versionMajor}.${rootProject.versionMinor}.${rootProject.versionPatch}"
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
     }
 
     compileOptions {
