@@ -3,6 +3,7 @@ package co.juliansuarez.changingbackground;
 import android.graphics.drawable.TransitionDrawable;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
@@ -11,16 +12,18 @@ import butterknife.InjectView;
 
 /**
  * A simple {@link android.support.v4.app.Fragment} subclass.
- * Use the {@link SecondFragment#newInstance} factory
+ * Use the {@link co.juliansuarez.changingbackground.SecondFragment#newInstance} factory
  * method to
  * create an instance of this fragment.
  */
-public class SecondFragment extends BaseAnimationFragment {
+public class SecondFragment extends BaseAnimationFragment implements View.OnClickListener {
 
     @InjectView(R.id.imageViewCloseAction)
     ImageView mImageViewCloseAction;
     @InjectView(R.id.relativeLayoutBackground)
     RelativeLayout mRelativeLayoutBackground;
+    @InjectView(R.id.buttonBackTransition)
+    Button mButtonBackTransition;
 
     /**
      * Use this factory method to create a new instance of
@@ -70,12 +73,12 @@ public class SecondFragment extends BaseAnimationFragment {
      * Here I setup the listeners for UI events
      */
     private void initListeners() {
-        mImageViewCloseAction.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getFragmentManager().popBackStack();
-            }
-        });
+        mImageViewCloseAction.setOnClickListener(this);
+        mButtonBackTransition.setOnClickListener(this);
     }
 
+    @Override
+    public void onClick(View v) {
+        getFragmentManager().popBackStack();
+    }
 }

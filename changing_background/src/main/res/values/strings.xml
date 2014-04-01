@@ -2,7 +2,8 @@
 <resources>
 
     <string name="app_name">ChangingBackground</string>
-    <string name="start_transition_label">Start Transition</string>
+    <string name="start_transition_label">Go Forward</string>
+    <string name="back_transition_label">Go Back</string>
     <string name="accesibility_close">Close</string>
 
 </resources>

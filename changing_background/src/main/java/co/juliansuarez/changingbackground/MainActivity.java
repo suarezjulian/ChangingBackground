@@ -27,7 +27,9 @@ public class MainActivity extends FragmentActivity implements FragmentManager
      * This is where we start the second fragment and add it to the backstack
      */
     public void startSecondFragment() {
-        getSupportFragmentManager().beginTransaction().replace(R.id.container,
+        getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim
+                .enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left,
+                R.anim.exit_to_right).replace(R.id.container,
                 SecondFragment.newInstance()).addToBackStack(null).commit();
     }
 
